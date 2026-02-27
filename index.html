@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ACOSTA STORE - Ropa, Calzado, Tecnología y Accesorios en Villavicencio, Meta. Los mejores precios, las mejores marcas.">
+<meta name="google-site-verification" content="broKAQ0vWlisXy7sYWSMN6fDOrDiZbHKsaOZviF0hKc" />
+<meta property="og:title" content="ACOSTA STORE 🛍️ Ropa, Calzado & Tecnología">
+<meta property="og:description" content="Tu tienda exclusiva en Villavicencio. Moda, calzado, gadgets y mucho más. ¡Envíos a todo Colombia!">
+<meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80">
+<title>ACOSTA STORE — Moda · Calzado · Tecnología · Accesorios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080808;
+    --white: #f4efe8;
+    --accent: #c9a84c;
+    --accent2: #8b6914;
+    --gray: #141414;
+    --mid: #1e1e1e;
+    --text: #a09880;
+    --border: #2a2520;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ---- NAVBAR ---- */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 20px 50px;
+    background: rgba(8,8,8,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--accent); }
+  nav ul { display:flex; gap:36px; list-style:none; }
+  nav ul a {
+    text-decoration:none; color: var(--text);
+    font-size: .78rem; letter-spacing:2px; text-transform:uppercase;
+    transition: color .2s; font-weight:500;
+  }
+  nav ul a:hover { color: var(--accent); }
+  .nav-right { display:flex; align-items:center; gap:20px; }
+  .cart-icon {
+    font-size:1.2rem; cursor:pointer;
+    position:relative; color: var(--text);
+    transition: color .2s;
+  }
+  .cart-icon:hover { color: var(--accent); }
+  .cart-badge {
+    position:absolute; top:-7px; right:-9px;
+    background:var(--accent); color:var(--black);
+    font-size:.55rem; font-weight:700;
+    width:16px; height:16px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding: 140px 20px 80px;
+    position:relative;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      linear-gradient(180deg, #080808 0%, #0d0b09 100%);
+    overflow:hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 50%);
+  }
+  .hero-line {
+    width:40px; height:1px; background:var(--accent);
+    margin:0 auto 28px; opacity:.7;
+    animation: fadeUp .5s ease both;
+  }
+  .hero-tag {
+    font-size:.7rem; letter-spacing:5px; text-transform:uppercase;
+    color:var(--accent); font-weight:500;
+    margin-bottom:24px;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero h1 {
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 11vw, 9rem);
+    font-weight: 700;
+    line-height:.95;
+    letter-spacing:6px;
+    text-transform:uppercase;
+    animation: fadeUp .7s .15s ease both;
+  }
+  .hero h1 em { color:var(--accent); font-style:normal; display:block; }
+  .hero-subtitle {
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight:400; letter-spacing:4px; text-transform:uppercase;
+    color: var(--text); margin-top:8px;
+    animation: fadeUp .7s .2s ease both;
+  }
+  .hero p {
+    margin-top:28px; max-width:480px;
+    color: var(--text); font-size:.95rem; line-height:1.8;
+    animation: fadeUp .7s .25s ease both;
+  }
+  .hero-btns {
+    display:flex; gap:16px; margin-top:44px; flex-wrap:wrap; justify-content:center;
+    animation: fadeUp .7s .3s ease both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: var(--black);
+    padding:14px 40px; border-radius:1px;
+    font-weight:700; font-size:.78rem; letter-spacing:3px; text-transform:uppercase;
+    border:none; cursor:pointer;
+    transition: transform .2s, box-shadow .2s, opacity .2s;
+    text-decoration:none;
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow: 0 10px 40px rgba(201,168,76,.3); opacity:.9; }
+  .btn-outline {
+    background:transparent; color:var(--white);
+    padding:14px 40px; border-radius:1px;
+    font-weight:500; font-size:.78rem; letter-spacing:3px; text-transform:uppercase;
+    border:1px solid var(--border); cursor:pointer; transition: border-color .2s, color .2s;
+    text-decoration:none;
+  }
+  .btn-outline:hover { border-color: var(--accent); color:var(--accent); }
+  .hero-scroll {
+    position:absolute; bottom:36px;
+    font-size:.65rem; color:var(--text); letter-spacing:3px; text-transform:uppercase;
+    animation: bob 2.5s infinite;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+  }
+  .scroll-line { width:1px; height:40px; background: linear-gradient(to bottom, var(--accent), transparent); }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ---- BANNER STRIP ---- */
+  .banner-strip {
+    background: linear-gradient(90deg, #1a1408, #2a1f0a, #1a1408);
+    border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:16px 40px;
+    display:flex; align-items:center; justify-content:center; gap:50px;
+    overflow:hidden; flex-wrap:wrap;
+  }
+  .banner-strip span {
+    font-size:.7rem; letter-spacing:3px; text-transform:uppercase;
+    color:var(--accent); white-space:nowrap; font-weight:500;
+  }
+  .sep { color: var(--border) !important; }
+
+  /* ---- SECTION COMMON ---- */
+  section { padding:90px 50px; max-width:1300px; margin:0 auto; }
+  .section-label {
+    font-size:.68rem; letter-spacing:4px; text-transform:uppercase;
+    color:var(--accent); font-weight:500; margin-bottom:10px;
+  }
+  .section-title {
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem,5vw,4rem);
+    font-weight:700; line-height:1; margin-bottom:50px;
+    letter-spacing:2px;
+  }
+  .title-line {
+    width:50px; height:1px; background:var(--accent);
+    margin-bottom:20px; opacity:.6;
+  }
+
+  /* ---- CATEGORIES ---- */
+  .cats {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:2px;
+  }
+  .cat-card {
+    position:relative; overflow:hidden;
+    aspect-ratio:2/3; cursor:pointer;
+  }
+  .cat-card img {
+    width:100%; height:100%; object-fit:cover;
+    filter: brightness(.45) saturate(.8);
+    transition: filter .5s, transform .6s;
+  }
+  .cat-card:hover img { filter:brightness(.3) saturate(.6); transform:scale(1.05); }
+  .cat-info {
+    position:absolute; bottom:0; left:0; right:0;
+    padding:32px 28px;
+    background: linear-gradient(to top, rgba(0,0,0,.95) 0%, transparent 100%);
+  }
+  .cat-info h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2rem; letter-spacing:4px; text-transform:uppercase;
+    font-weight:700; margin-bottom:4px;
+  }
+  .cat-info span { font-size:.72rem; color:var(--text); letter-spacing:2px; text-transform:uppercase; }
+  .cat-btn {
+    position:absolute; top:20px; right:20px;
+    border:1px solid var(--accent); color:var(--accent);
+    font-size:.65rem; font-weight:500; letter-spacing:2px; text-transform:uppercase;
+    padding:7px 16px;
+    opacity:0; transform:translateY(-8px);
+    transition: opacity .3s, transform .3s, background .2s;
+  }
+  .cat-card:hover .cat-btn { opacity:1; transform:translateY(0); }
+  .cat-btn:hover { background:var(--accent); color:var(--black); }
+
+  /* ---- PRODUCTS ---- */
+  .products-grid {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px,1fr));
+    gap:2px;
+  }
+  .product-card {
+    background: var(--gray);
+    overflow:hidden;
+    transition: transform .3s;
+    cursor:pointer;
+    position:relative;
+  }
+  .product-card:hover { transform:translateY(-4px); }
+  .product-img {
+    position:relative; overflow:hidden;
+    aspect-ratio:4/5;
+  }
+  .product-img img {
+    width:100%; height:100%; object-fit:cover;
+    filter: brightness(.85) saturate(.9);
+    transition: transform .5s, filter .4s;
+  }
+  .product-card:hover .product-img img { transform:scale(1.06); filter:brightness(.7) saturate(.8); }
+  .product-badge {
+    position:absolute; top:16px; left:16px;
+    background:var(--accent); color:var(--black);
+    font-size:.6rem; font-weight:700; letter-spacing:2px;
+    padding:5px 12px; text-transform:uppercase;
+  }
+  .product-badge.new { background:var(--white); color:var(--black); }
+  .add-cart-btn {
+    position:absolute; bottom:16px; right:16px;
+    background:var(--accent); color:var(--black);
+    border:none; width:42px; height:42px; font-size:1.2rem;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    opacity:0; transform:translateY(8px);
+    transition: opacity .25s, transform .25s;
+    font-weight:700;
+  }
+  .product-card:hover .add-cart-btn { opacity:1; transform:translateY(0); }
+  .product-info { padding:20px; border-top:1px solid var(--border); }
+  .product-info .cat-tag {
+    font-size:.65rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:6px; font-weight:500;
+  }
+  .product-info h4 { font-weight:500; margin-bottom:12px; font-size:.95rem; letter-spacing:.5px; }
+  .price-row { display:flex; align-items:center; gap:12px; }
+  .price { font-weight:700; font-size:1rem; color:var(--accent); letter-spacing:1px; }
+  .price-old { font-size:.82rem; color:#555; text-decoration:line-through; }
+
+  /* ---- PROMO SECTION ---- */
+  .promo-grid {
+    display:grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap:2px;
+  }
+  .promo-card {
+    overflow:hidden;
+    position:relative;
+    cursor:pointer;
+  }
+  .promo-card:first-child { aspect-ratio:4/3; }
+  .promo-card:last-child { aspect-ratio:3/4; }
+  .promo-card img {
+    width:100%; height:100%; object-fit:cover;
+    filter:brightness(.4) saturate(.7);
+    transition: transform .5s, filter .4s;
+  }
+  .promo-card:hover img { transform:scale(1.04); filter:brightness(.25) saturate(.5); }
+  .promo-content {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:40px;
+    background: linear-gradient(to top, rgba(0,0,0,.9) 0%, transparent 60%);
+  }
+  .promo-content .tag {
+    color:var(--accent); font-size:.68rem; letter-spacing:3px; text-transform:uppercase;
+    margin-bottom:10px; font-weight:500;
+  }
+  .promo-content h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:2.4rem; letter-spacing:3px; text-transform:uppercase;
+    font-weight:700; margin-bottom:8px;
+  }
+  .promo-content p { color:var(--text); font-size:.85rem; line-height:1.6; }
+
+  /* ---- NEWSLETTER ---- */
+  .newsletter-wrap {
+    border:1px solid var(--border);
+    padding:70px 60px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background: linear-gradient(135deg, #0f0c08, #150f06);
+  }
+  .newsletter-wrap::before {
+    content:'';
+    position:absolute; top:-100px; left:50%; transform:translateX(-50%);
+    width:400px; height:400px;
+    background: radial-gradient(circle, rgba(201,168,76,.06) 0%, transparent 70%);
+  }
+  .newsletter-wrap h2 {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight:700; letter-spacing:4px; margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  .newsletter-wrap p { color:var(--text); margin-bottom:36px; letter-spacing:.5px; }
+  .email-form {
+    display:flex; gap:0; max-width:460px; margin:0 auto;
+    border:1px solid var(--border);
+  }
+  .email-form input {
+    flex:1; background:transparent; border:none; outline:none;
+    padding:15px 22px; color:var(--white);
+    font-family:'DM Sans',sans-serif; font-size:.88rem;
+  }
+  .email-form input::placeholder { color:#3a3530; }
+  .email-form button {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border:none; color:var(--black);
+    padding:15px 28px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    cursor:pointer; font-size:.75rem;
+    transition: opacity .2s;
+    white-space:nowrap;
+  }
+  .email-form button:hover { opacity:.85; }
+
+  /* ---- FOOTER ---- */
+  .footer-wrap {
+    background:#050503; border-top:1px solid var(--border);
+    padding:70px 50px 30px;
+    max-width:1300px; margin:0 auto;
+  }
+  .footer-grid {
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:50px; margin-bottom:50px;
+  }
+  .footer-logo {
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.6rem; font-weight:700; letter-spacing:6px;
+    text-transform:uppercase; margin-bottom:16px; display:block;
+    color:var(--white);
+  }
+  .footer-logo span { color:var(--accent); }
+  .footer-brand p { color:var(--text); font-size:.83rem; line-height:1.8; max-width:240px; }
+  .footer-col h5 {
+    font-size:.65rem; letter-spacing:3px; text-transform:uppercase;
+    color:var(--accent); margin-bottom:20px; font-weight:500;
+  }
+  .footer-col a {
+    display:block; color:var(--text); text-decoration:none;
+    font-size:.85rem; margin-bottom:12px; letter-spacing:.3px;
+    transition:color .2s;
+  }
+  .footer-col a:hover { color:var(--white); }
+  .footer-bottom {
+    border-top:1px solid var(--border); padding-top:28px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.75rem; color:#3a3530; flex-wrap:wrap; gap:12px;
+    letter-spacing:1px;
+  }
+  .social-links { display:flex; gap:20px; }
+  .social-links a {
+    color:#3a3530; text-decoration:none; font-size:1rem;
+    transition:color .2s;
+  }
+  .social-links a:hover { color:var(--accent); }
+
+  /* ---- WHATSAPP ---- */
+  .whatsapp-btn {
+    position:fixed; bottom:30px; right:30px; z-index:200;
+    background:#25D366; color:#fff;
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.5rem; text-decoration:none;
+    box-shadow: 0 4px 24px rgba(37,211,102,.35);
+    transition:transform .2s, box-shadow .2s;
+  }
+  .whatsapp-btn:hover { transform:scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+
+  /* ---- CART ---- */
+  .cart-overlay {
+    display:none; position:fixed; inset:0; z-index:300;
+    background:rgba(0,0,0,.8); backdrop-filter:blur(6px);
+  }
+  .cart-overlay.open { display:flex; justify-content:flex-end; }
+  .cart-panel {
+    background:var(--gray); width:400px; height:100%;
+    padding:36px 30px; overflow-y:auto;
+    animation: slideIn .3s ease;
+    border-left:1px solid var(--border);
+  }
+  @keyframes slideIn { from{transform:translateX(100%)} to{transform:translateX(0)} }
+  .cart-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; }
+  .cart-header h3 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.8rem; letter-spacing:4px; text-transform:uppercase; font-weight:700;
+  }
+  .close-cart { background:none; border:none; color:var(--text); font-size:1.3rem; cursor:pointer; transition:color .2s; }
+  .close-cart:hover { color:var(--white); }
+  .cart-empty { color:var(--text); text-align:center; padding:70px 0; font-size:.9rem; letter-spacing:1px; }
+  .cart-items { display:flex; flex-direction:column; gap:16px; }
+  .cart-item {
+    display:flex; gap:16px; align-items:center;
+    background:var(--mid); padding:14px;
+    border:1px solid var(--border);
+  }
+  .cart-item img { width:64px; height:64px; object-fit:cover; }
+  .cart-item-info { flex:1; }
+  .cart-item-info h5 { font-size:.88rem; margin-bottom:5px; letter-spacing:.3px; }
+  .cart-item-info span { font-size:.8rem; color:var(--accent); }
+  .cart-item-del { background:none; border:none; color:#444; cursor:pointer; font-size:.9rem; transition:color .2s; }
+  .cart-item-del:hover { color:var(--accent); }
+  .cart-total {
+    margin-top:28px; padding-top:20px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:.8rem; letter-spacing:2px; text-transform:uppercase;
+  }
+  .cart-total span:last-child { color:var(--accent); font-size:1.1rem; letter-spacing:1px; }
+  .checkout-btn {
+    width:100%; margin-top:16px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border:none; color:var(--black);
+    padding:16px; font-weight:700; font-size:.78rem;
+    letter-spacing:3px; text-transform:uppercase; cursor:pointer;
+    transition: opacity .2s;
+  }
+  .checkout-btn:hover { opacity:.85; }
+
+  /* ---- RESPONSIVE ---- */
+  @media(max-width:950px) {
+    nav ul { display:none; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .promo-grid { grid-template-columns:1fr; }
+    .promo-card:first-child, .promo-card:last-child { aspect-ratio:16/9; }
+    section { padding:60px 24px; }
+    .footer-wrap { padding:50px 24px 24px; }
+    .newsletter-wrap { padding:50px 24px; }
+  }
+  @media(max-width:600px) {
+    nav { padding:16px 24px; }
+    .logo { font-size:1.4rem; letter-spacing:5px; }
+    .footer-grid { grid-template-columns:1fr; }
+    .banner-strip { gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">ACOSTA <span>STORE</span></div>
+  <ul>
+    <li><a href="#categorias">Categorías</a></li>
+    <li><a href="#productos">Productos</a></li>
+    <li><a href="#ofertas">Ofertas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="cart-icon" onclick="toggleCart()">🛒<span class="cart-badge" id="badge">0</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-line"></div>
+  <div class="hero-tag">✦ Nueva Temporada 2026 — Villavicencio, Meta</div>
+  <h1>ACOSTA<em>STORE</em></h1>
+  <div class="hero-subtitle">Moda · Calzado · Tecnología · Accesorios</div>
+  <p>Tu tienda exclusiva en el corazón del Llano. Calidad, estilo y las mejores marcas en un solo lugar. Envíos a todo Colombia.</p>
+  <div class="hero-btns">
+    <a href="#productos" class="btn-primary">Explorar Colección</a>
+    <a href="#ofertas" class="btn-outline">Ver Ofertas</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Descubrir</span>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner-strip">
+  <span>✦ Envío Gratis +$120.000</span>
+  <span class="sep">|</span>
+  <span>✦ Garantía 30 Días</span>
+  <span class="sep">|</span>
+  <span>✦ Pagos Seguros</span>
+  <span class="sep">|</span>
+  <span>✦ Villavicencio & Todo Colombia</span>
+</div>
+
+<!-- CATEGORÍAS -->
+<section id="categorias">
+  <div class="title-line"></div>
+  <div class="section-label">Explorar</div>
+  <div class="section-title">NUESTRAS CATEGORÍAS</div>
+  <div class="cats">
+    <div class="cat-card" onclick="filterProducts('ropa')">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Ropa">
+      <div class="cat-info">
+        <h3>ROPA</h3>
+        <span>Hombre · Mujer · Niños</span>
+      </div>
+      <div class="cat-btn">Ver Colección</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('calzado')">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Calzado">
+      <div class="cat-info">
+        <h3>CALZADO</h3>
+        <span>Sneakers · Botas · Formales</span>
+      </div>
+      <div class="cat-btn">Ver Colección</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('tech')">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80" alt="Tecnología">
+      <div class="cat-info">
+        <h3>TECNOLOGÍA</h3>
+        <span>Gadgets · Audio · Accesorios</span>
+      </div>
+      <div class="cat-btn">Ver Colección</div>
+    </div>
+    <div class="cat-card" onclick="filterProducts('accesorios')">
+      <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=600&q=80" alt="Accesorios">
+      <div class="cat-info">
+        <h3>ACCESORIOS</h3>
+        <span>Bolsos · Relojes · Lentes</span>
+      </div>
+      <div class="cat-btn">Ver Colección</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="title-line"></div>
+  <div class="section-label">Selección Exclusiva</div>
+  <div class="section-title">PRODUCTOS DESTACADOS</div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- OFERTAS -->
+<section id="ofertas" style="padding-bottom:0">
+  <div class="title-line"></div>
+  <div class="section-label">Imperdible</div>
+  <div class="section-title">OFERTAS ESPECIALES</div>
+  <div class="promo-grid">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80" alt="Moda">
+      <div class="promo-content">
+        <span class="tag">✦ Solo Esta Semana</span>
+        <h3>HASTA 50%<br>EN MODA</h3>
+        <p>Renueva tu estilo a precios que no esperabas</p>
+      </div>
+    </div>
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=900&q=80" alt="Tech">
+      <div class="promo-content">
+        <span class="tag">✦ Oferta Exclusiva</span>
+        <h3>TECH AL<br>MEJOR PRECIO</h3>
+        <p>Los últimos gadgets con descuentos únicos</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="contacto">
+  <div class="newsletter-wrap">
+    <div class="title-line" style="margin:0 auto 16px;"></div>
+    <div class="section-label" style="margin-bottom:12px;">Únete a ACOSTA STORE</div>
+    <h2>¡NO TE PIERDAS NADA!</h2>
+    <p>Suscríbete y recibe ofertas exclusivas, nuevos lanzamientos y descuentos solo para miembros.</p>
+    <div class="email-form">
+      <input type="email" placeholder="tu@correo.com" id="emailInput">
+      <button onclick="subscribe()">Suscribirme</button>
+    </div>
+    <p style="margin-top:18px; font-size:.75rem; color:#3a3530; letter-spacing:1px;">SIN SPAM · SOLO LO MEJOR · CANCELA CUANDO QUIERAS</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-wrap">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo">ACOSTA <span>STORE</span></span>
+      <p>Tu tienda exclusiva en Villavicencio, Meta. Ropa, calzado, tecnología y accesorios de calidad para todo Colombia.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Tienda</h5>
+      <a href="#categorias">Ropa</a>
+      <a href="#categorias">Calzado</a>
+      <a href="#categorias">Tecnología</a>
+      <a href="#categorias">Accesorios</a>
+    </div>
+    <div class="footer-col">
+      <h5>Información</h5>
+      <a href="#">Envíos</a>
+      <a href="#">Devoluciones</a>
+      <a href="#">Guía de Tallas</a>
+      <a href="#">Preguntas Frecuentes</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contacto</h5>
+      <a href="https://wa.me/573223424082" target="_blank">📱 322 342 4082</a>
+      <a href="/cdn-cgi/l/email-protection#3657555945425742430f0076515b575f5a1855595b">📧 <span class="__cf_email__" data-cfemail="1170727e6265706564282751767c70787d3f727e7c">[email&#160;protected]</span></a>
+      <a href="#">📍 Villavicencio, Meta</a>
+      <a href="#">🇨🇴 Colombia</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 ACOSTA STORE — Villavicencio, Meta · Todos los derechos reservados</span>
+    <div class="social-links">
+      <a href="#" title="Instagram">📸</a>
+      <a href="#" title="TikTok">🎵</a>
+      <a href="#" title="Facebook">👥</a>
+      <a href="https://wa.me/573223424082" title="WhatsApp" target="_blank">💬</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="whatsapp-btn" href="https://wa.me/573223424082?text=Hola%20ACOSTA%20STORE!%20Quiero%20saber%20más%20sobre%20sus%20productos%20🛍️" target="_blank" title="Escríbenos por WhatsApp">💬</a>
+
+<!-- CART -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h3>Tu Carrito</h3>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div id="cartContent">
+      <div class="cart-empty">🛒<br><br>Tu carrito está vacío.<br><small style="color:#555">¡Empieza a explorar!</small></div>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const products = [
+  { id:1, name:"Chaqueta Varsity Premium", cat:"ropa", price:189000, old:249000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&q=80" },
+  { id:2, name:"Sneakers Air Classic", cat:"calzado", price:279000, old:null, badge:"NUEVO", img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80" },
+  { id:3, name:"Audífonos Pro BT 5.0", cat:"tech", price:149000, old:199000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80" },
+  { id:4, name:"Sudadera Oversize Urban", cat:"ropa", price:95000, old:null, badge:"NUEVO", img:"https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=500&q=80" },
+  { id:5, name:"Reloj Smartwatch X2", cat:"tech", price:320000, old:399000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80" },
+  { id:6, name:"Botas Chelsea Cuero", cat:"calzado", price:215000, old:null, badge:null, img:"https://images.unsplash.com/photo-1608256246200-53e635b5b65f?w=500&q=80" },
+  { id:7, name:"Mochila Laptop 15\"", cat:"accesorios", price:125000, old:160000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80" },
+  { id:8, name:"Camiseta Graphic Tee", cat:"ropa", price:55000, old:null, badge:"NUEVO", img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&q=80" },
+  { id:9, name:"Gafas de Sol Premium", cat:"accesorios", price:89000, old:120000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80" },
+  { id:10, name:"Parlante Bluetooth Pro", cat:"tech", price:185000, old:null, badge:"NUEVO", img:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80" },
+  { id:11, name:"Jeans Slim Fit Premium", cat:"ropa", price:135000, old:175000, badge:"OFERTA", img:"https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&q=80" },
+  { id:12, name:"Tenis Running Pro", cat:"calzado", price:245000, old:null, badge:"NUEVO", img:"https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&q=80" },
+];
+
+const cart = [];
+
+function fmt(n) { return '$' + n.toLocaleString('es-CO'); }
+
+function renderProducts(filter='all') {
+  const grid = document.getElementById('productsGrid');
+  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card">
+      <div class="product-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.badge ? `<span class="product-badge ${p.badge==='NUEVO'?'new':''}">${p.badge}</span>` : ''}
+        <button class="add-cart-btn" onclick="addToCart(${p.id})" title="Agregar al carrito">+</button>
+      </div>
+      <div class="product-info">
+        <div class="cat-tag">${p.cat.toUpperCase()}</div>
+        <h4>${p.name}</h4>
+        <div class="price-row">
+          <span class="price">${fmt(p.price)}</span>
+          ${p.old ? `<span class="price-old">${fmt(p.old)}</span>` : ''}
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterProducts(cat) {
+  document.getElementById('productos').scrollIntoView({behavior:'smooth'});
+  renderProducts(cat);
+}
+
+function addToCart(id) {
+  const p = products.find(x=>x.id===id);
+  const existing = cart.find(x=>x.id===id);
+  if(existing) existing.qty++;
+  else cart.push({...p, qty:1});
+  updateBadge(); renderCart();
+  document.getElementById('cartOverlay').classList.add('open');
+}
+
+function updateBadge() {
+  document.getElementById('badge').textContent = cart.reduce((a,i)=>a+i.qty,0);
+}
+
+function renderCart() {
+  const el = document.getElementById('cartContent');
+  if(!cart.length) {
+    el.innerHTML='<div class="cart-empty">🛒<br><br>Tu carrito está vacío.<br><small style="color:#555">¡Empieza a explorar!</small></div>';
+    return;
+  }
+  const total = cart.reduce((a,i)=>a+i.price*i.qty,0);
+  el.innerHTML = `
+    <div class="cart-items">${cart.map(i=>`
+      <div class="cart-item">
+        <img src="${i.img}" alt="${i.name}">
+        <div class="cart-item-info">
+          <h5>${i.name}</h5>
+          <span>${fmt(i.price)} × ${i.qty}</span>
+        </div>
+        <button class="cart-item-del" onclick="removeFromCart(${i.id})">✕</button>
+      </div>`).join('')}
+    </div>
+    <div class="cart-total"><span>Total</span><span>${fmt(total)}</span></div>
+    <button class="checkout-btn" onclick="checkout()">Finalizar por WhatsApp 💬</button>
+  `;
+}
+
+function removeFromCart(id) {
+  const idx = cart.findIndex(x=>x.id===id);
+  if(idx>-1) cart.splice(idx,1);
+  updateBadge(); renderCart();
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+  renderCart();
+}
+
+function closeCartOutside(e) {
+  if(e.target === document.getElementById('cartOverlay')) toggleCart();
+}
+
+function checkout() {
+  const total = cart.reduce((a,i)=>a+i.price*i.qty,0);
+  const items = cart.map(i=>`${i.name} x${i.qty}`).join(', ');
+  const msg = `Hola ACOSTA STORE! 👋 Quiero comprar: ${items}. Total: ${fmt(total)} 🛍️`;
+  window.open(`https://wa.me/573223424082?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function subscribe() {
+  const email = document.getElementById('emailInput').value;
+  if(email && email.includes('@')) {
+    alert('¡
